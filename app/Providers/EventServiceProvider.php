@@ -2,8 +2,13 @@
 
 namespace Raffles\Providers;
 
+use Raffles\Listeners\PruneOldTokens;
+use Raffles\Listeners\RevokeOldTokens;
+
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use Laravel\Passport\Events\AccessTokenCreated;
+use Laravel\Passport\Events\RefreshTokenCreated;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -13,9 +18,17 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'Raffles\Events\Event' => [
-            'Raffles\Listeners\EventListener',
+        AccessTokenCreated::class => [
+            RevokeOldTokens::class,
         ],
+
+         RefreshTokenCreated::class => [
+            PruneOldTokens::class,
+        ],
+
+         Registered::class => [
+            SendEmailVerificationNotification::class,
+        ]
     ];
 
     /**
