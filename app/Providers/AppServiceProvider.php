@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace Raffles\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
