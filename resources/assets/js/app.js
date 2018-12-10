@@ -10,6 +10,9 @@ require("./bootstrap")
 import store from "@/store"
 import router from "@/router"
 import Vue from "vue"
+import Snotify from "vue-snotify"
+
+Vue.use(Snotify)
 
 // Don't warn about using the dev version of Vue in development
 Vue.config.productionTip = process.env.NODE_ENV === "production"
