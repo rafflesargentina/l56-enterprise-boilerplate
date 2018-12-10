@@ -36,10 +36,9 @@ files.keys().map(key => Vue.component(key.split("/").pop().split(".")[0], files(
 
 const app = new Vue({
     el: "#app",
-    //render: (h) => h(require("./App.vue")),
+    render: (h) => h(require("./App.vue")),
     router,
     store
-})
-//.$mount("#app")
+}).$mount("#app")
 
 export default app
