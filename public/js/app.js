@@ -65066,7 +65066,7 @@ var fields = {
                             }
                         });
 
-                        return _this.$router.push({ path: response.redirect || "/" });
+                        return _this.$router.push({ path: response.redirect });
                     }).catch(function (error) {
                         _this.submitted = false;
 
@@ -65606,7 +65606,7 @@ var fields = {
                 return _this.$store.dispatch("auth/login", response);
             }).then(function (response) {
                 var intended = _this.$route.query.intended;
-                var redirect = intended || response.redirect || "/";
+                var redirect = intended || response.redirect;
                 return _this.$router.push({ path: redirect });
             }).catch(function () {
                 _this.submitted = false;
@@ -66100,11 +66100,13 @@ var fields = {
 
             this.submitted = true;
 
+            var redirect = void 0;
             this.form[this.method](this.action).then(function (response) {
-                return _this.$store.dispatch("auth/login", response.data);
+                redirect = response.redirect;
+                return _this.$store.dispatch("auth/login", response);
             }).then(function () {
                 _this.$snotify.success("Fuiste registrado correctamente.");
-                return _this.$router.push({ path: response.redirect || "/" });
+                return _this.$router.push({ path: redirect });
             }).catch(function (error) {
                 _this.submitted = false;
                 if (error.status > 422) {
@@ -66635,7 +66637,7 @@ var fields = {
                                 timeout: 5000
                             }
                         });
-                        return _this.$router.push({ path: response.redirect || "/" });
+                        return _this.$router.push({ path: response.redirect });
                     }).catch(function (error) {
                         _this.submitted = false;
 
@@ -66934,9 +66936,8 @@ var fields = {
             this.submitted = true;
 
             this.form.post("/password/reset").then(function (response) {
-                _this.form.reset();
                 _this.$snotify.success(response.message);
-                return _this.$router.push({ path: response.redirect || "/" });
+                return _this.$router.push({ path: response.redirect });
             }).catch(function (error) {
                 _this.submitted = false;
                 if (error.status > 422) {
