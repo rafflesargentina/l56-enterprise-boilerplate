@@ -24,11 +24,11 @@ class EventServiceProvider extends ServiceProvider
 
          RefreshTokenCreated::class => [
             PruneOldTokens::class,
-        ],
+         ],
 
          Registered::class => [
             SendEmailVerificationNotification::class,
-        ]
+         ]
     ];
 
     /**
