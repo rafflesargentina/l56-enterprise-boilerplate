@@ -248,7 +248,6 @@
 <script>
 import { authComputed } from "@/store/helpers"
 import { getSavedState, mapDzMockFile,  previewDzThumbnailFromFile } from "@/utilities/helpers"
-import store from "@/store"
 import vue2Dropzone from "vue2-dropzone"
 import Form from "@/utilities/Form"
 
@@ -279,7 +278,6 @@ export default {
                 maxFiles: 1,
                 maxFilesize: 0.2,
                 method: "put",
-                params: { avatar: { 0: { featured: 1 } } },
                 paramName: "avatar",
                 uploadMultiple: true,
                 url: "/api/avatars"
@@ -316,7 +314,7 @@ export default {
     created() {
         this.form = new Form(this.user)
 
-        store.watch(state => state.auth.user, value => {
+        this.$store.watch(state => state.auth.user, value => {
             this.form = new Form(value)
         })
     },
@@ -330,7 +328,7 @@ export default {
         dzAccept() {
             if (!this.dzHasError) {
                 window.$("#modalChangeAvatar").modal("hide")
-                return store.dispatch("auth/validate")
+                return this.$store.dispatch("auth/validate")
             }
         },
 
