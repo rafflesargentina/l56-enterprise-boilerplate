@@ -322,6 +322,11 @@ export default {
         })
     },
 
+    destroyed() {
+        let modal = document.querySelector("#modalChangeAvatar")
+        modal.parentNode.removeChild(modal)
+    },
+
     mounted() {
         let modal = document.querySelector("#modalChangeAvatar")
         document.querySelector("body").appendChild(modal)
