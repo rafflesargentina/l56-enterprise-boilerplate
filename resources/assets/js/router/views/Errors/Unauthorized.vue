@@ -16,7 +16,7 @@
       slot="description" 
       class="error__p"
     >
-      No tenés permiso concendido para ingresar a esta página o sección.
+      No tenés permiso concedido para ingresar a esta página o sección.
     </p>
   </ErrorPage>
 </template>
