@@ -5,13 +5,14 @@ namespace Raffles\Models;
 use Raffles\Models\Traits\UserTrait;
 
 use Caffeinated\Shinobi\Traits\ShinobiTrait;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, Notifiable, ShinobiTrait, UserTrait;
+    use HasApiTokens, Notifiable, ShinobiTrait, SoftDeletes, UserTrait;
 
     /**
      * The accessors to append to the model's array form.
@@ -21,6 +22,13 @@ class User extends Authenticatable
     protected $appends = [
         'name'
     ];
+
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
 
     /**
      * The attributes that are mass assignable.
