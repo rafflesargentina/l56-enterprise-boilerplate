@@ -90,7 +90,6 @@
 }
 
 @include media-breakpoint-up(md) {
-  .sidebar.collapsed,
   .sidebar:not(.collapsed) {
     width: 20%;
   }
