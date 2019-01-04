@@ -208,7 +208,7 @@
               </span>
             </button>
           </div>
-          <vue-dropzone 
+          <VueDropzone 
             id="dzAvatar"
             ref="dzAvatar"
             :options="dzOptions"
@@ -264,7 +264,7 @@ export default {
     name: "PersonalData",
 
     components: {
-        vueDropzone: vue2Dropzone
+        VueDropzone: vue2Dropzone
     },
 
     data() {
