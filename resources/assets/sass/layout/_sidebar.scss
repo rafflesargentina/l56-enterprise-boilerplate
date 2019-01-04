@@ -13,6 +13,7 @@
   }
 
   &:not(.collapsed) {
+    transition: all .5s ease-in-out;
     width: 100%;
   }
 

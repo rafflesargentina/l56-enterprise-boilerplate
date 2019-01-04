@@ -43,9 +43,9 @@
       </div>
 
       <div class="col-sm-8 mb-2 mb-sm-0 pr-sm-2 pr-md-3">
-        <main class="account-content card account__card"> 
-          <section class="account-section">
-            <h4 class="account-header">
+        <main class="card">
+          <section>
+            <h4 class="main-header">
               Datos Personales
             </h4>
             <div class="row">
