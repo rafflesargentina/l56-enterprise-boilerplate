@@ -1,10 +1,6 @@
 <template>
   <div class="nav d-flex justify-content-center">
-<<<<<<< HEAD
     <ul class="pagination flex-wrap mb-0">
-=======
-    <ul class="pagination flex-wrap">
->>>>>>> 404315f... Add Paginator class and Pagination component
       <li 
         v-for="n in numbers" 
         :key="n.key"
